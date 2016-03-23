@@ -1,9 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { createStore } from 'redux';
 
-export default class App extends Component {
+import { Provider } from 'react-redux';
+
+import { Map } from 'immutable';
+
+// require('../styles/base.scss');
+require('./App.scss');
+
+let store = createStore(() => Map());
+
+export default class App extends React.Component {
   render() {
     return (
-      <h1>Hello, world.</h1>
+      <div>
+        <Provider store={store}>
+          <h1>Hello, world.</h1>
+        </Provider>
+      </div>
     );
   }
 }
